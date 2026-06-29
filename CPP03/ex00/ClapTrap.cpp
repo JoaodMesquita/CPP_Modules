@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 23:07:33 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/29 22:42:34 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/06/29 22:55:45 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ClapTrap::ClapTrap(const std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << _name << " has joined the battle" << std::endl;
 }
 
 ClapTrap:: ~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Game Over" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target){
