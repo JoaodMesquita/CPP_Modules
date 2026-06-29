@@ -6,20 +6,21 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:57:50 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/29 14:26:37 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/06/29 22:26:28 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <climits>
 
 class	ClapTrap
 {
 	private:
 
-		std::string	_name;
-		int	_hitPoints;
-		int	_energyPoints;
-		int	_attackDamage;
+		std::string		_name;
+		unsigned int	_hitPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
 
 	public:
 

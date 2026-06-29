@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 23:07:33 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/29 16:03:56 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/06/29 22:42:34 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,41 @@ void ClapTrap::attack(const std::string& target){
 
 void ClapTrap::takeDamage(unsigned int amount){
 
-	if (_hitPoints > 1)
+	if (_hitPoints < 1)
+	{
+		std::cout << _name << " was already destroyed." << std::endl;
+		return ;
+	}
+	if (amount >= _hitPoints)
+	{
+		_hitPoints = 0;
+		std::cout << _name << " was destroyed." << std::endl;
+	}
+	else
 	{
 		_hitPoints -= amount;
 		std::cout << _name << " suffered " << amount << " points of damage.\n" << "HP left: " << _hitPoints << std::endl;
-		if (_hitPoints < 1)
-		{
-			std::cout << _name << " has died." << std::endl;
-			return ;
-		}
 	}
-	else
-		std::cout << _name << " is already dead." << std::endl;
-	
 }
+
 void ClapTrap::beRepaired(unsigned int amount){
 
-	if (_hitPoints < 1)
-	{
-		std::cout << _name << " is destroyed and cannot be repaired." << std::endl;
-		return ;
-	}
-	else if (_energyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "No energy points left." << std::endl;
 		return ;
 	}
-	else
+	else if (_hitPoints < 1)
 	{
-		_energyPoints -= 1;
-		_hitPoints += amount;
-		std::cout << _name << " earned " << amount << " HP points.\n" << "HP left: " << _hitPoints << std::endl;
+		std::cout << _name << " is destroyed and cannot be repaired." << std::endl;
+		return ;
 	}
+	_energyPoints --;
+
+	unsigned int heal = amount;
+	
+	if (_hitPoints > UINT_MAX - heal)
+			heal = UINT_MAX - _hitPoints;
+	_hitPoints += heal;
+	std::cout << _name << " earned " << amount << " HP points.\n" << "HP left: " << _hitPoints  << "\nEP left: "<< _energyPoints << std::endl;
 }
