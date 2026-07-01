@@ -6,13 +6,15 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 16:39:08 by joapedro          #+#    #+#             */
-/*   Updated: 2026/07/01 18:31:39 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/01 19:14:42 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main(void)
 {
@@ -29,6 +31,16 @@ int	main(void)
 	delete meta;
 	delete j;
 	delete i;
+
+/* 	const WrongAnimal* meta = new WrongAnimal();
+	const WrongAnimal* i = new WrongCat();
+	
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	meta->makeSound();
+
+	delete meta;
+	delete i; */
 	
 	return 0;
 }

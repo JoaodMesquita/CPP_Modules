@@ -6,13 +6,13 @@
 #    By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/28 22:56:41 by joapedro          #+#    #+#              #
-#    Updated: 2026/07/01 18:22:43 by joapedro         ###   ########.fr        #
+#    Updated: 2026/07/01 19:09:52 by joapedro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = animal
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp 
+SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
