@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 23:07:33 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/29 22:55:45 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/01 13:33:54 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ ClapTrap:: ~ClapTrap()
 {
 	std::cout << "Game Over" << std::endl;
 }
+
+// Implementar copy operator and copy assignment
 
 void ClapTrap::attack(const std::string& target){
 

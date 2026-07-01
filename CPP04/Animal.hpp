@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 22:57:50 by joapedro          #+#    #+#             */
-/*   Updated: 2026/07/01 13:30:36 by joapedro         ###   ########.fr       */
+/*   Created: 2026/07/01 13:39:20 by joapedro          #+#    #+#             */
+/*   Updated: 2026/07/01 13:45:47 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <climits>
 
-class	ClapTrap
+class Animal
 {
-	private:
-
-		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
-
+	protected:
+		
+		std::string _type;
+	
 	public:
-
-		ClapTrap(const std::string name);
-		~ClapTrap();
-
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-
-		//std::string getName(); sou capaz de nao precisar desta funcao
-};
+		
+		Animal();
+		~Animal();
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual void makeSound();
+}
