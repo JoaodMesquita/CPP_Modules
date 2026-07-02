@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:43:57 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/30 15:14:01 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:18:33 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ ScavTrap::~ScavTrap(){
 	std::cout << "Scavtrap destructor called" << std::endl;
 
 }
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other){
+
+	std::cout << "Copy contructor called" << std::endl;
+	*this = other;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other){
+
+	std::cout << "Copy assignment constructor called" << std::endl;
+	if (this != &other)
+		ClapTrap::operator=(other);
+	return *this;
+}
+
 
 void ScavTrap::attack(const std::string& target){
 
@@ -47,4 +62,9 @@ void ScavTrap::attack(const std::string& target){
 void ScavTrap::guardGate(){
 
 	std::cout << "Scavtrap is now in gate keeper mode." << std::endl;
+}
+
+std::string ScavTrap::getName(){
+	
+	return this->_name;
 }

@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 15:34:27 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/30 15:46:07 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:18:17 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name){
 FragTrap::~FragTrap(){
 
 	std::cout << "FragTrap destructor called" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other){
+
+	std::cout << "Copy contructor called" << std::endl;
+	*this = other;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& other){
+
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other)
+		FragTrap::operator=(other);
+	return *this;
 }
 
 void FragTrap::attack(const std::string& target){
@@ -44,8 +58,12 @@ void FragTrap::attack(const std::string& target){
 	}
 }
 
-
 void FragTrap::highFivesGuys(void){
 
 	std::cout << "FragTrap " << _name << " wants a high five!" << std::endl;
+}
+
+std::string FragTrap::getName(){
+	
+	return this->_name;
 }
