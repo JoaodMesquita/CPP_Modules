@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 23:20:34 by joapedro          #+#    #+#             */
-/*   Updated: 2026/06/29 22:38:27 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/02 11:24:21 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,15 @@
 int main(void)
 {
 	ClapTrap robot("Vox_Machina");
+	ClapTrap robot1(robot);
+	ClapTrap robot2("Golem");
 	
+	robot = robot2;
+	
+	std::cout << "\nCOPY CONSTRUCTOR AND COPY ASSIGNEMENT TESTS" << std::endl;
+	std::cout << "Name: " << robot.getName() << std::endl;
+	std::cout << "Name: " << robot1.getName() << "\n" << std::endl;
+
 	robot.attack("Dragon");
 	robot.takeDamage(8);
 	robot.takeDamage(1);

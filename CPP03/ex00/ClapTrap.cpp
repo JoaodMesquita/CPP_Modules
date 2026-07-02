@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 23:07:33 by joapedro          #+#    #+#             */
-/*   Updated: 2026/07/01 13:33:54 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:14:15 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,24 @@ ClapTrap:: ~ClapTrap()
 	std::cout << "Game Over" << std::endl;
 }
 
-// Implementar copy operator and copy assignment
+ClapTrap::ClapTrap(const ClapTrap& other){
+
+	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other){
+
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other)
+	{
+		this->_name  = other._name;
+		this->_hitPoints =	other._hitPoints;
+		this->_energyPoints	= other._energyPoints;
+		this->_attackDamage = other._attackDamage;
+	}
+	return *this;
+}
 
 void ClapTrap::attack(const std::string& target){
 
@@ -81,4 +98,9 @@ void ClapTrap::beRepaired(unsigned int amount){
 			heal = UINT_MAX - _hitPoints;
 	_hitPoints += heal;
 	std::cout << _name << " earned " << amount << " HP points.\n" << "HP left: " << _hitPoints  << "\nEP left: "<< _energyPoints << std::endl;
+}
+
+std::string ClapTrap::getName(){
+	
+	return this->_name;
 }

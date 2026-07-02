@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:57:50 by joapedro          #+#    #+#             */
-/*   Updated: 2026/07/01 13:30:36 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/02 11:14:52 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ class	ClapTrap
 
 		ClapTrap(const std::string name);
 		~ClapTrap();
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		//std::string getName(); sou capaz de nao precisar desta funcao
+		std::string getName();
 };
