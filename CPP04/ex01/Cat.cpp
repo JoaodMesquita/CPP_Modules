@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 17:27:36 by joapedro          #+#    #+#             */
-/*   Updated: 2026/07/06 13:41:01 by joapedro         ###   ########.fr       */
+/*   Updated: 2026/07/08 11:44:19 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ Cat& Cat::operator=(const Cat& other){
 
 	std::cout << "Cat copy assignament operator called";
 	if (this != &other)
-		this->_type = other._type;
+	{
+		Animal::operator=(other);
+		delete _brain;
+		_brain = new Brain(*other._brain);
+	}	
 	return *this;
 };
 
