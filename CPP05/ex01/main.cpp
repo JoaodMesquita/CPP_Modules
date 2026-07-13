@@ -3,10 +3,12 @@
 int main (void)
 {
 
-	Bureaucrat Boss ("Boss", 4);
+	Bureaucrat Boss ("Boss", 80);
 	Bureaucrat worker("Worker", 100);
-	Form contract("joao", 10, 10);
-
+	Form contract("form", 70, 10);
+	
+	Boss.signForm(contract);
+	//std::cout << contract << std::endl;
 
 
 

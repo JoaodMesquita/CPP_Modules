@@ -21,10 +21,20 @@ Form::~Form(){
 	std::cout << "Form was destroyed" << std::endl;
 }
 
+bool Form::getSignature(){
+
+	return isSigned;
+}
+
+std::string Form::getName(){
+	
+	return _name;
+}
+
 void Form::beSigned(const Bureaucrat& Bureaucrat){
 
 	if (Bureaucrat.getGrade() <= _gradeToSign)
 		isSigned = true;
 	else
-		GradeTooLowException();
+		throw GradeTooLowException();
 }

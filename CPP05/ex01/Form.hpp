@@ -3,8 +3,9 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+#include "iostream"
 
-//class Bureaucrat;
+class Bureaucrat;
 
 class Form
 {
@@ -23,14 +24,14 @@ class Form
 		~Form();
 
 		void beSigned(const Bureaucrat& Bureaucrat);
-
-
+		bool getSignature();
+		std::string getName();
 
 		class GradeTooHighException : public std::exception {
 
 			const char* what() const throw() {
 
-				return "Grade is too high!\n";
+				return "grade is too high.\n";
 			}
 		};
 
@@ -38,7 +39,7 @@ class Form
 
 			const char* what() const throw() {
 
-				return "Grade is too low!\n";
+				return "grade is too low.\n";
 			}
 		};
 };

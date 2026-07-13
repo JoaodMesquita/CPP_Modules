@@ -50,15 +50,21 @@ void Bureaucrat::decrementGrade(int amount)
 
 void Bureaucrat::signForm(Form& form){
 
-	/* Then, add a signForm() member function in the Bureaucrat class. This function must
-	call Form::beSigned() to attempt to sign the form. If the form is signed successfully, it
-	will print something like:
-	<bureaucrat> signed <form>
-	Otherwise, it will print something like:
-	<bureaucrat> couldn’t sign <form> because <reason>.
-	Implement and submit some tests to ensure everything works as expected. */
-	
-
+	if (form.getSignature() == true)
+		std::cout << "form "<< form.getName() << " was already signed" << std::endl;
+	else
+	{
+		try
+		{
+			form.beSigned(*this);
+			std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << this->getName() << " couldn't sign " << form.getName() 
+			<< " because " << e.what();
+		}
+	}
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj){
