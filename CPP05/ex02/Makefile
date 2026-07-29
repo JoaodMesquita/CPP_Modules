@@ -1,6 +1,6 @@
 NAME = execute_form
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

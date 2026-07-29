@@ -1,6 +1,7 @@
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /* int main (void)
 {
@@ -55,7 +56,7 @@ int main(void)
 
 // --------TEST SHRUBBERY FORM-------
 
-	Bureaucrat d("Scanlan", 130);
+/* 	Bureaucrat d("Scanlan", 130);
 	Bureaucrat f("Vax", 138);
 	ShrubberyCreationForm form("Mythcarver");
 	d.signForm(form);
@@ -68,5 +69,23 @@ int main(void)
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
+	} */
+
+// --------TEST ROBOTOMY FORM-------
+
+	Bureaucrat g("Grog", 44);
+	Bureaucrat h("Percival", 46);
+	RobotomyRequestForm form("Altair");
+	g.signForm(form);
+
+	try
+	{
+		g.executeForm(form);
+		h.executeForm(form);
 	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 }
