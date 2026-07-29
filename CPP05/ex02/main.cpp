@@ -1,5 +1,6 @@
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /* int main (void)
 {
@@ -31,19 +32,36 @@
 
 int main(void)
 {
+	
+// --------TEST PRESIDENTAL PARDON FORM-------
 
-	Bureaucrat a("Joao", 4);
+/* 	Bureaucrat a("Joao", 4);
 	Bureaucrat b("Ye", 6);
 	Bureaucrat c("Michael", 1);
 	PresidentialPardonForm form("Jorge Sampaio");
+	PresidentialPardonForm form1("Cavaco Silva");
 	a.signForm(form);
 	
-// --------TEST PRESIDENTAL PARDON FORM-------
 	try
 	{
 		a.executeForm(form);
 		b.executeForm(form);
-		//c.executeForm(form);
+		c.executeForm(form1);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	} */
+
+// --------TEST SHRUBBERY FORM-------
+
+	Bureaucrat d("Scanlan", 120);
+	ShrubberyCreationForm form("Mythcarver");
+	d.signForm(form);
+
+	try
+	{
+		d.executeForm(form);
 	}
 	catch (std::exception &e)
 	{

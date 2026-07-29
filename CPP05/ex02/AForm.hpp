@@ -2,6 +2,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <fstream>
 
 class Bureaucrat;
 

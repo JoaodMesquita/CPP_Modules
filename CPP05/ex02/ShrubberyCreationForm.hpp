@@ -1,10 +1,17 @@
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : AForm{
+class ShrubberyCreationForm : public AForm{
+
+	private:
+
+		std::string _target;
 
 	public:
-		ShrubberyCreationForm();
+
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm();
+
+		virtual void executeA() const;
 };
