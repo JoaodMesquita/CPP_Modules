@@ -55,13 +55,15 @@ int main(void)
 
 // --------TEST SHRUBBERY FORM-------
 
-	Bureaucrat d("Scanlan", 120);
+	Bureaucrat d("Scanlan", 130);
+	Bureaucrat f("Vax", 138);
 	ShrubberyCreationForm form("Mythcarver");
 	d.signForm(form);
 
 	try
 	{
 		d.executeForm(form);
+		f.executeForm(form);
 	}
 	catch (std::exception &e)
 	{
