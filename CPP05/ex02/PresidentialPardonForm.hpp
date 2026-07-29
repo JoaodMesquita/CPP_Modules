@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-class PresidentalPardonForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	private:
 
@@ -8,11 +8,10 @@ class PresidentalPardonForm : public AForm
 
 	public:
 
-		PresidentalPardonForm();
-		PresidentalPardonForm(std::string& target);
-		PresidentalPardonForm(const PresidentalPardonForm& other);
-		PresidentalPardonForm& operator=(const PresidentalPardonForm& other);
-		~PresidentalPardonForm();
+		PresidentialPardonForm(const std::string& target);
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+		~PresidentialPardonForm();
 
 		virtual void executeA() const;
 };

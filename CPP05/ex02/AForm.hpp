@@ -49,7 +49,7 @@ class AForm
 			}
 		};
 
-		class NotSignedExecption : public std:: exception {
+		class NotSignedException : public std:: exception {
 
 				const char* what() const throw()
 				{
