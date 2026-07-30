@@ -3,44 +3,15 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-/* int main (void)
-{
-
-	try
-	{
-		Bureaucrat Boss ("Boss", -80);
-		Bureaucrat worker("Worker", 100);
-		Form contract("form", 70, 10);
-		Form contract2("form2", 110, 10);
-		
-		Boss.signForm(contract);
-		worker.signForm(contract2);
-	
-		std::cout << Boss << std::endl;
-		std::cout << contract << std::endl;
-		std::cout << contract2 << std::endl;
-	
-		std::cout << contract.getGradeToSign() << std::endl;
-		std::cout << contract.getGradeToExecute() << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	return (0);
-} */
-
 int main(void)
 {
-	
-// --------TEST PRESIDENTAL PARDON FORM-------
+	std::cout << "\n--------TEST PRESIDENTAL PARDON FORM--------\n";
 
-/* 	Bureaucrat a("Joao", 4);
-	Bureaucrat b("Ye", 6);
+	Bureaucrat a("Joao", 4);
+	Bureaucrat b("Ye", 6); //grade too low
 	Bureaucrat c("Michael", 1);
-	PresidentialPardonForm form("Jorge Sampaio");
-	PresidentialPardonForm form1("Cavaco Silva");
+	PresidentialPardonForm form("Jorge Sampaio"); //signed
+	PresidentialPardonForm form1("Cavaco Silva"); //not signed
 	a.signForm(form);
 	
 	try
@@ -52,40 +23,81 @@ int main(void)
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
-	} */
+	}
 
-// --------TEST SHRUBBERY FORM-------
+	std::cout << "\n--------TEST SHRUBBERY FORM--------\n";
 
-/* 	Bureaucrat d("Scanlan", 130);
+	Bureaucrat d("Scanlan", 130);
 	Bureaucrat f("Vax", 138);
-	ShrubberyCreationForm form("Mythcarver");
-	d.signForm(form);
+	ShrubberyCreationForm contract("Mythcarver");
+	d.signForm(contract);
 
 	try
 	{
-		d.executeForm(form);
-		f.executeForm(form);
+		d.executeForm(contract); //check ".._shrubbery file";
+		f.executeForm(contract);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
-	} */
+	}
 
-// --------TEST ROBOTOMY FORM-------
+	std::cout << "\n--------TEST ROBOTOMY FORM--------\n";
 
 	Bureaucrat g("Grog", 44);
 	Bureaucrat h("Percival", 46);
-	RobotomyRequestForm form("Altair");
-	g.signForm(form);
+	RobotomyRequestForm treat("Altair");
+	g.signForm(treat);
 
 	try
 	{
-		g.executeForm(form);
-		h.executeForm(form);
+		g.executeForm(treat);
+		h.executeForm(treat);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
+	std::cout << "\n--------COPY ASSIGNMENT (CONST MEMBERS)--------\n";
+
+	Bureaucrat boss("Boss", 1);
+
+	PresidentialPardonForm A("Target A");
+	PresidentialPardonForm B("Target B");
+
+	boss.signForm(A);
+
+	std::cout << "\nBefore assignment:\n";
+	std::cout << A << std::endl;
+	std::cout << B << std::endl;
+
+	B = A;
+
+	std::cout << "\nAfter assignment:\n";
+	std::cout << A << std::endl;
+	std::cout << B << std::endl;
+
+	std::cout << "\n--------COPY OPERATOR--------\n";
+
+	ShrubberyCreationForm shrubbery_original("Shrubbery");
+	ShrubberyCreationForm shrubbery_copy(shrubbery_original);
+
+	PresidentialPardonForm Presidential_original("Presidential");
+	PresidentialPardonForm Presidential_copy(Presidential_original);
+
+	RobotomyRequestForm Robotomy_original("Robotomy");
+	RobotomyRequestForm Robotomy_copy(Robotomy_original);
+
+	std::cout << "\nOriginal: " << &shrubbery_original << std::endl;
+	std::cout << "Copy: " << &shrubbery_copy << std::endl;
+
+	std::cout << "\nOriginal: " << &Presidential_original << std::endl;
+	std::cout << "Copy: " << &Presidential_copy << std::endl;
+
+	std::cout << "\nOriginal: " << &Robotomy_original << std::endl;
+	std::cout << "Copy: " << &Robotomy_copy << std::endl;
+
+
+	std::cout << std::endl;
 }
