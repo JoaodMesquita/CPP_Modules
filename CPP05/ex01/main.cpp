@@ -1,33 +1,5 @@
 #include "Form.hpp"
 
-/* int main (void)
-{
-
-	try
-	{
-		Bureaucrat Boss ("Boss", -80);
-		Bureaucrat worker("Worker", 100);
-		Form contract("form", 70, 10);
-		Form contract2("form2", 110, 10);
-		
-		Boss.signForm(contract);
-		worker.signForm(contract2);
-	
-		std::cout << Boss << std::endl;
-		std::cout << contract << std::endl;
-		std::cout << contract2 << std::endl;
-	
-		std::cout << contract.getGradeToSign() << std::endl;
-		std::cout << contract.getGradeToExecute() << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	return (0);
-} */
-
 int main(void)
 {
     std::cout << "===============================" << std::endl;
@@ -222,6 +194,46 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
+
+    std::cout << "\n===============================" << std::endl;
+    std::cout << " Copy constructor FORM" << std::endl;
+    std::cout << "===============================" << std::endl;
+
+    try
+    {
+        Bureaucrat Melissa("Melissa", 1);
+		Form contract("contract", 25, 25);
+		Melissa.signForm(contract);
+		Form contract2(contract);
+
+		std::cout <<  contract << std::endl;
+		std::cout <<  contract2 << std::endl;
+    }
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===============================" << std::endl;
+	std::cout << " Copy assignment FORM" << std::endl;
+	std::cout << "===============================" << std::endl;
+
+	try
+	{
+		Bureaucrat Goncalo("Goncalo", 4);
+		Form file("file", 30, 30);
+		Goncalo.signForm(file);
+		Form contract3("dir", 10, 10);
+
+		contract3 = file;
+
+		std::cout <<  file << std::endl;
+		std::cout <<  contract3 << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
     std::cout << "\n===============================" << std::endl;
     std::cout << " END OF TESTS" << std::endl;
