@@ -89,14 +89,14 @@ int main(void)
 	RobotomyRequestForm Robotomy_original("Robotomy");
 	RobotomyRequestForm Robotomy_copy(Robotomy_original);
 
-	std::cout << "\nOriginal: " << shrubbery_original << std::endl;
-	std::cout << "Copy: " << shrubbery_copy << std::endl;
+	std::cout << "\nOriginal: " << &shrubbery_original << std::endl;
+	std::cout << "Copy: " << &shrubbery_copy << std::endl;
 
-	std::cout << "\nOriginal: " << Presidential_original << std::endl;
-	std::cout << "Copy: " << Presidential_copy << std::endl;
+	std::cout << "\nOriginal: " << &Presidential_original << std::endl;
+	std::cout << "Copy: " << &Presidential_copy << std::endl;
 
-	std::cout << "\nOriginal: " << Robotomy_original << std::endl;
-	std::cout << "Copy: " << Robotomy_copy << std::endl;
+	std::cout << "\nOriginal: " << &Robotomy_original << std::endl;
+	std::cout << "Copy: " << &Robotomy_copy << std::endl;
 
 
 	std::cout << std::endl;

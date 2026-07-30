@@ -3,7 +3,7 @@
 int main (void)
 {
 
-	//Copy constructor 
+/* 	//Copy constructor 
 	Bureaucrat a ("joao", 4);
 	Bureaucrat b (a);
 
@@ -17,7 +17,7 @@ int main (void)
 	d = c;
 
 	std::cout << "C: "<< c << std::endl;
-	std::cout << "D: "<< d << std::endl;
+	std::cout << "D: "<< d << std::endl; */
 
 /* 	try{
 		Bureaucrat a ("A", 13);
@@ -33,8 +33,10 @@ int main (void)
 		std::cout << "Caught an exception: " << e.what();
 	} */
 
-	/* try{
+	try{
 		
+		Bureaucrat a;
+		std::cout << a << std::endl;
 		Bureaucrat don ("Don Cornelius", 151);
 		std::cout << don << std::endl;
 	}
@@ -61,7 +63,7 @@ int main (void)
 	catch (std::exception & e)
 	{
 		std::cout << "Caught an exception: " << e.what();
-	}*/
+	}
 
 
 	return (0);
