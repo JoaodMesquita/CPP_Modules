@@ -5,7 +5,7 @@
 
 int main(void)
 {
-	std::cout << "\n--------TEST PRESIDENTAL PARDON FORM--------\n";
+	std::cout << "====TEST PRESIDENTAL PARDON FORM====\n";
 
 	Bureaucrat a("Joao", 4);
 	Bureaucrat b("Ye", 6); //grade too low
@@ -25,7 +25,7 @@ int main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n--------TEST SHRUBBERY FORM--------\n";
+	std::cout << "\n====TEST SHRUBBERY FORM====\n";
 
 	Bureaucrat d("Scanlan", 130);
 	Bureaucrat f("Vax", 138);
@@ -42,7 +42,7 @@ int main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n--------TEST ROBOTOMY FORM--------\n";
+	std::cout << "\n====TEST ROBOTOMY FORM====\n";
 
 	Bureaucrat g("Grog", 44);
 	Bureaucrat h("Percival", 46);
@@ -59,7 +59,7 @@ int main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n--------COPY ASSIGNMENT (CONST MEMBERS)--------\n";
+	std::cout << "\n====COPY ASSIGNMENT (CONST MEMBERS)====\n";
 
 	Bureaucrat boss("Boss", 1);
 
@@ -78,7 +78,7 @@ int main(void)
 	std::cout << A << std::endl;
 	std::cout << B << std::endl;
 
-	std::cout << "\n--------COPY OPERATOR--------\n";
+	std::cout << "\n====COPY OPERATOR====\n";
 
 	ShrubberyCreationForm shrubbery_original("Shrubbery");
 	ShrubberyCreationForm shrubbery_copy(shrubbery_original);
