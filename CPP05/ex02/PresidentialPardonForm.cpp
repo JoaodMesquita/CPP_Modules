@@ -1,5 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm() : AForm(){};
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("PresidentialPardonForm", 25, 5), _target(target){
 
 	std::cout << "PresidentialPardonForm called\n";
