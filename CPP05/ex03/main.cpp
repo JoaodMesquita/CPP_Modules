@@ -4,12 +4,14 @@ int main(void)
 {
 	try
 	{
-		Bureaucrat DSebastiao("D. Seastiao", 15);
+		Bureaucrat DSebastiao("D. Seastiao", 44);
 		Intern joao;
 		AForm* shrubbery;
 		shrubbery = joao.makeform("shrubbery creation", "trees");
-		
-		std::cout << shrubbery << std::endl;
+		std::cout << *shrubbery << std::endl;
+		DSebastiao.signForm(*shrubbery);
+		std::cout << *shrubbery << std::endl;
+		DSebastiao.executeForm(*shrubbery);
 	}
 	catch (std::exception &e)
 	{

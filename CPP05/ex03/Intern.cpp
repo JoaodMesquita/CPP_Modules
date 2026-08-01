@@ -40,7 +40,7 @@ AForm* Intern::makeform(const std::string& name, const std::string& target){
 		case 1:
 			return new RobotomyRequestForm(target);
 		case 2:
-			return new RobotomyRequestForm(target);
+			return new ShrubberyCreationForm(target);
 		default:
 			throw InvalidFormException();
 	}
