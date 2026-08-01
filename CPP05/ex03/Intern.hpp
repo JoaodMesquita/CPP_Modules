@@ -1,4 +1,7 @@
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 class Intern
 {
@@ -10,4 +13,10 @@ class Intern
 		~Intern();
 
 		AForm* makeform(const std::string& name, const std::string& target);
+
+		class InvalidFormException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
