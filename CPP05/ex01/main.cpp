@@ -49,10 +49,12 @@ int main(void)
 
     try
     {
+        Form unknown;
         Form tax("Tax Form", 50, 25);
         Form contract("Contract", 10, 5);
         Form permit("Permit", 150, 150);
 
+        std::cout << unknown << std::endl;
         std::cout << tax << std::endl;
         std::cout << contract << std::endl;
         std::cout << permit << std::endl;
