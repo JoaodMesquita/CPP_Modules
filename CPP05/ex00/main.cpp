@@ -3,7 +3,18 @@
 int main (void)
 {
 
-	std::cout << "====High and Low grades====\n";
+	std::cout << "====Default constructor====\n";
+	try
+	{
+		Bureaucrat Unknown;
+		std::cout << Unknown << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << "Caught an exception: " << e.what();
+	}
+
+	std::cout << "\n====High and Low grades====\n";
 	try{
 		
 		Bureaucrat don ("Don Cornelius", 151);
