@@ -18,5 +18,17 @@ int main(void)
 		std::cout << "Caught exception: " << e.what();
 	}
 
+	std::cout << "\n====Invalid Form====" << std::endl;
+
+	try
+	{
+		Intern vip;
+		AForm* unknown;
+		unknown = vip.makeform("Form", "something");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Caught exception: " << e.what();
+	}
 	return (0);
 }
