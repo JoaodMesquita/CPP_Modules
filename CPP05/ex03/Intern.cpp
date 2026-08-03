@@ -22,14 +22,14 @@ const char* Intern::InvalidFormException::what() const throw(){
 }
 
 
-AForm* Intern::makeform(const std::string& name, const std::string& target){
+AForm* Intern::makeForm(const std::string& name, const std::string& target){
 
 	std::string forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 
-	int x;
+	int x = -1;
 	for (int i = 0; i < 3; i++)
 	{
-		if (forms[i] == name)
+		if (name == forms[i])
 			x = i;
 	}
 

@@ -7,11 +7,12 @@ int main(void)
 		Bureaucrat DSebastiao("D. Seastiao", 44);
 		Intern joao;
 		AForm* shrubbery;
-		shrubbery = joao.makeform("shrubbery creation", "trees");
+		shrubbery = joao.makeForm("shrubbery creation", "trees");
 		std::cout << *shrubbery << std::endl;
 		DSebastiao.signForm(*shrubbery);
 		std::cout << *shrubbery << std::endl;
 		DSebastiao.executeForm(*shrubbery);
+		delete shrubbery;
 	}
 	catch (std::exception &e)
 	{
@@ -24,7 +25,8 @@ int main(void)
 	{
 		Intern vip;
 		AForm* unknown;
-		unknown = vip.makeform("Form", "something");
+		unknown = vip.makeForm("Form", "something");
+		delete unknown;
 	}
 	catch (std::exception &e)
 	{

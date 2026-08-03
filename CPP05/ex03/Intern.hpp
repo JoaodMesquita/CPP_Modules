@@ -12,7 +12,7 @@ class Intern
 		Intern& operator=(const Intern& other);
 		~Intern();
 
-		AForm* makeform(const std::string& name, const std::string& target);
+		AForm* makeForm(const std::string& name, const std::string& target);
 
 		class InvalidFormException : public std::exception
 		{
