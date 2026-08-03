@@ -46,5 +46,7 @@ void ShrubberyCreationForm::executeA() const{
 	file << "      |||            |||            |||\n";
 	file << "      |||            |||            |||\n";
 	file << "      |||            |||            |||\n";
+
+	std::cout << file_name << " file created\n";
 	file.close();
 }

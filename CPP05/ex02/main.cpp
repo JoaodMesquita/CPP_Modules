@@ -7,9 +7,12 @@ int main(void)
 {
 	std::cout << "====TEST PRESIDENTAL PARDON FORM====\n";
 
+
 	Bureaucrat a("Joao", 4);
 	Bureaucrat b("Ye", 6); //grade too low
 	Bureaucrat c("Michael", 1);
+	PresidentialPardonForm unknown;
+	std::cout << unknown << std::endl;
 	PresidentialPardonForm form("Jorge Sampaio"); //signed
 	PresidentialPardonForm form1("Cavaco Silva"); //not signed
 	a.signForm(form);
@@ -30,6 +33,8 @@ int main(void)
 	Bureaucrat d("Scanlan", 130);
 	Bureaucrat f("Vax", 138);
 	ShrubberyCreationForm contract("Mythcarver");
+	ShrubberyCreationForm unknown1;
+	std::cout << unknown1 << std::endl;
 	d.signForm(contract);
 
 	try
@@ -47,6 +52,8 @@ int main(void)
 	Bureaucrat g("Grog", 44);
 	Bureaucrat h("Percival", 46);
 	RobotomyRequestForm treat("Altair");
+	RobotomyRequestForm unknown2;
+	std::cout << unknown2 << std::endl;
 	g.signForm(treat);
 
 	try
