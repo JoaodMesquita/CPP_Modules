@@ -70,6 +70,21 @@ void AForm::execute(Bureaucrat const & executor) const{
 	executeA();
 }
 
+const char* AForm::GradeTooHighException::what() const throw(){
+
+	return "Grade is too high!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw(){
+
+	return "Grade is too low!";
+}
+
+const char* AForm::NotSignedException::what() const throw(){
+
+	return "Form is not signed!";
+}
+
 std::ostream& operator<<(std::ostream& out, const AForm& obj){
 
 	if (obj.getSignature())
