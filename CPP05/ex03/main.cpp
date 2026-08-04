@@ -1,4 +1,6 @@
 #include "Intern.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 int main(void)
 {
@@ -6,7 +8,7 @@ int main(void)
 	std::cout <<"\n====Shrubbery MakeForm====\n";
 	try
 	{
-		Bureaucrat DSebastiao("D. Seastiao", 44);
+		Bureaucrat DSebastiao("D. Sebastiao", 44);
 		Intern joao;
 		AForm* shrubbery;
 		shrubbery = joao.makeForm("shrubbery creation", "trees");
@@ -30,6 +32,7 @@ int main(void)
 		presidential = daniel.makeForm("presidential pardon", "convict");
 		std::cout << *presidential << std::endl;
 		DJoaoI.signForm(*presidential);
+		std::cout << *presidential << std::endl;
 		DJoaoI.executeForm(*presidential);
 		delete presidential;
 	}
@@ -47,6 +50,7 @@ int main(void)
 		Zord = lilo.makeForm("robotomy request", "zed");
 		std::cout << *Zord << std::endl;
 		Stitch.signForm(*Zord);
+		std::cout << *Zord << std::endl;
 		Stitch.executeForm(*Zord);
 		delete Zord;
 	}

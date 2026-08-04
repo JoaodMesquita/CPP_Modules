@@ -1,4 +1,5 @@
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm() : _name("Unknown"), _gradeToSign(75), _gradeToExecute(75){
 

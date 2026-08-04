@@ -1,9 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "AForm.hpp"
 #include <iostream>
-
 
 class AForm;
 
