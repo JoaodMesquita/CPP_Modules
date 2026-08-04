@@ -1,6 +1,6 @@
-#pragma once
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
-#include "Bureaucrat.hpp"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -56,3 +56,5 @@ class AForm
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& obj);
+
+#endif
