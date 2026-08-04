@@ -18,7 +18,7 @@ Intern& Intern::operator=(const Intern& other){
 
 const char* Intern::InvalidFormException::what() const throw(){
 
-	return "Invalid Form!\n";
+	return "Form does not exist!\n";
 }
 
 
@@ -36,10 +36,13 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target){
 	switch(x)
 	{
 		case 0:
+			std::cout << "Intern creates " << name << std::endl;
 			return new PresidentialPardonForm(target);
 		case 1:
+			std::cout << "Intern creates " << name << std::endl;
 			return new RobotomyRequestForm(target);
 		case 2:
+			std::cout << "Intern creates " << name << std::endl;
 			return new ShrubberyCreationForm(target);
 		default:
 			throw InvalidFormException();
