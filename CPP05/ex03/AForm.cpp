@@ -1,7 +1,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : _name("Unknown"), _gradeToSign(75), _gradeToExecute(75){
+AForm::AForm() : _name("Unknown"), isSigned(false), _gradeToSign(75), _gradeToExecute(75){
 
 	std::cout << "Form default constructor called\n";
 }
