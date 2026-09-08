@@ -125,9 +125,17 @@ void convertInt(const std::string &input)
 	std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
 }
 
-void convertFloat(const std::strinf &input)
+void convertFloat(const std::string &input)
 {
-
+	if (input == "nanf" || input == "+inff" || input == "-inff")
+	{
+		std::cout << "char: impossible" << "\n";
+		std::cout << "int: impossible" << "\n";
+		std::cout << "float: " << input << "\n";
+		std::string str = input;
+		str.erase(str.length() - 1);
+		std::cout << "double: " << str << "\n";
+	}
 }
 
 literal	ScalarConverter::identifyLiteral(const std::string &input)
