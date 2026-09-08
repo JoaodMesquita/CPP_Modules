@@ -135,7 +135,27 @@ void convertFloat(const std::string &input)
 		std::string str = input;
 		str.erase(str.length() - 1);
 		std::cout << "double: " << str << "\n";
+		return;
 	}
+
+	long num;
+	std::stringstream ss(input);
+	ss >> num;
+
+	if (num < 0 || num > 127)
+		std::cout << "char: impossible" << "\n";
+	else if (num >= 0 && num <= 31)
+		std::cout << "char: Non displayable" << '\n';
+	else
+		std::cout << "char: " << static_cast<char>(num) << "\n";
+	
+	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max())
+		std::cout << "int: " << num << "\n";
+	else
+		std::cout << "int: impossible" << "\n";
+
+	std::cout << "float: " << static_cast<float>(num) << ".0f" << "\n";
+	std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
 }
 
 literal	ScalarConverter::identifyLiteral(const std::string &input)
