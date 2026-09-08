@@ -36,6 +36,8 @@ int	ScalarConverter::isInt(const std::string &input)
 
 int	ScalarConverter::isFloat(const std::string &input)
 {
+	if (input == "nanf" || input == "+inff" || input == "-inff")
+		return (1);
 	size_t i = input.length();
 	if (input[i - 1] == 'f' && input[i - 2] != '.')
 	{
@@ -65,6 +67,8 @@ int	ScalarConverter::isFloat(const std::string &input)
 
 int	ScalarConverter::isDouble(const std::string &input)
 {
+	if (input == "nan" || input == "+inf" || input == "-inf")
+		return (1);
 	size_t i = 0;
 	if (input[0] == '-' || input[0] == '+')
 		i++;
@@ -89,6 +93,29 @@ int	ScalarConverter::isDouble(const std::string &input)
 	return (1);
 }
 
+void convertChar(const std::string &input)
+{
+	char	literal = input[0];
+
+	std::cout << "char: " << literal << "\n";
+	std::cout << "int: " << static_cast<int>(literal) << "\n";
+	std::cout << "float: " << static_cast<float>(literal) << ".0f" << "\n";
+	std::cout << "double: " << static_cast<double>(literal) << ".0" << "\n";
+}
+
+void convertInt(const std::string &input)
+{
+	int num;
+
+	std::stringstream ss(input);
+	ss >> num;
+
+	if (num >= 32 && num <= 127)
+		std::cout << "char: " << static_cast<char>(num) << "\n";
+	else
+		std::cout << "char: impossible" << "\n";
+}
+
 literal	ScalarConverter::identifyLiteral(const std::string &input)
 {
 	if (isChar(input))
@@ -106,7 +133,23 @@ literal	ScalarConverter::identifyLiteral(const std::string &input)
 void ScalarConverter::convert(std::string &input)
 {
 	literal type = identifyLiteral(input);
-	std::cout << type << "\n";
+
+	switch (type)
+	{
+		case CHAR:
+			convertChar(input);
+			break;
+		case INT:
+			convertInt(input);
+			break;
+		case FLOAT:
+			std::cout << type << "\n";
+			break;
+		case DOUBLE:
+			std::cout << type << "\n";
+			break;
+		case INVALID:
+			std::cout << "Invalid format" << "\n";
+			break;
+	}
 }
-
-
