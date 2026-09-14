@@ -156,6 +156,36 @@ void convertFloat(const std::string &input)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << "\n";
 }
 
+void convertDouble(const std::string &input)
+{
+	if (input == "nan" || input == "+inf" || input == "-inf")
+	{
+		std::cout << "char: impossible" << "\n";
+		std::cout << "int: impossible" << "\n";
+		std::cout << "float: " << input << 'f' << "\n";
+		std::cout << "double: " << input << "\n";
+		return;
+	}
+
+	double num;
+	std::stringstream ss(input);
+	ss >> num;
+
+	if (num < 0 || num > 127)
+		std::cout << "char: impossible" << "\n";
+	else if ((num >= 0 && num <= 31) || num == 127)
+		std::cout << "char: Non displayable" << '\n';
+	else
+		std::cout << "char: " << "'" << static_cast<char>(num) << "'" << "\n";
+	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max())
+		std::cout << "int: " << static_cast<int>(num) << "\n";
+	else
+		std::cout << "int: impossible" << "\n";
+
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << "\n";
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << "\n";
+}
+
 void invalidCase()
 {
 	std::cout << "char: impossible" << "\n";
@@ -194,7 +224,7 @@ void ScalarConverter::convert(std::string &input)
 			convertFloat(input);
 			break;
 		case DOUBLE:
-			std::cout << type << "\n";
+			convertDouble(input);
 			break;
 		case INVALID:
 			invalidCase();
