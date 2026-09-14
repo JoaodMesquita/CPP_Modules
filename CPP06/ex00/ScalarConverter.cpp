@@ -97,7 +97,7 @@ void convertChar(const std::string &input)
 {
 	char	literal = input[0];
 
-	std::cout << "char: " << literal << "\n";
+	std::cout << "char: " << "'" << literal << "'" << "\n";
 	std::cout << "int: " << static_cast<int>(literal) << "\n";
 	std::cout << "float: " << static_cast<float>(literal) << ".0f" << "\n";
 	std::cout << "double: " << static_cast<double>(literal) << ".0" << "\n";
@@ -114,23 +114,14 @@ void convertInt(const std::string &input)
 	else if ((num >= 0 && num <= 31) || num == 127)
 		std::cout << "char: Non displayable" << '\n';
 	else
-		std::cout << "char: " << static_cast<char>(num) << "\n";
-	
+		std::cout << "char: " << "'" << static_cast<char>(num) << "'" << "\n";
 	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max())
 		std::cout << "int: " << num << "\n";
 	else
 		std::cout << "int: impossible" << "\n";
 
-	if (num >= 1000000 || num <= -1000000)
-	{
-		std::cout << "float: " << static_cast<float>(num) << "\n";
-		std::cout << "double: " << static_cast<double>(num) << "\n";
-	}
-	else
-	{
-		std::cout << "float: " << static_cast<float>(num) << ".0f" << "\n";
-		std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
-	}
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << "\n";
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << "\n";
 }
 
 void convertFloat(const std::string &input)
@@ -155,18 +146,22 @@ void convertFloat(const std::string &input)
 	else if ((num >= 0 && num <= 31) || num == 127)
 		std::cout << "char: Non displayable" << '\n';
 	else
-		std::cout << "char: " << static_cast<char>(num) << "\n";
-
+		std::cout << "char: " << "'" << static_cast<char>(num) << "'" << "\n";
 	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max())
 		std::cout << "int: " << static_cast<int>(num) << "\n";
 	else
 		std::cout << "int: impossible" << "\n";
 
-	if (num >= std::numeric_limits<float>::min() && num <= std::numeric_limits<float>::max())
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << "\n";
-	else
-		std::cout << "float: impossible" << "\n";
-	std::cout << "double: " << num << "\n";
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << "\n";
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << "\n";
+}
+
+void invalidCase()
+{
+	std::cout << "char: impossible" << "\n";
+	std::cout << "int: impossible" << "\n";
+	std::cout << "float: impossible" << "\n";
+	std::cout << "double: impossible" << "\n";
 }
 
 literal	ScalarConverter::identifyLiteral(const std::string &input)
@@ -202,7 +197,7 @@ void ScalarConverter::convert(std::string &input)
 			std::cout << type << "\n";
 			break;
 		case INVALID:
-			std::cout << "Invalid format" << "\n";
+			invalidCase();
 			break;
 	}
 }
