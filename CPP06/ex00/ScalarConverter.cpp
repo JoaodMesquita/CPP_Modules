@@ -109,9 +109,9 @@ void convertInt(const std::string &input)
 	std::stringstream ss(input);
 	ss >> num;
 
-	if (num < 0 || num > 127)
+	if (num < 0 || num >127)
 		std::cout << "char: impossible" << "\n";
-	else if (num >= 0 && num <= 31)
+	else if ((num >= 0 && num <= 31) || num == 127)
 		std::cout << "char: Non displayable" << '\n';
 	else
 		std::cout << "char: " << static_cast<char>(num) << "\n";
@@ -121,7 +121,7 @@ void convertInt(const std::string &input)
 	else
 		std::cout << "int: impossible" << "\n";
 
-	if (num >= 1000000)
+	if (num >= 1000000 || num <= -1000000)
 	{
 		std::cout << "float: " << static_cast<float>(num) << "\n";
 		std::cout << "double: " << static_cast<double>(num) << "\n";
@@ -133,7 +133,7 @@ void convertInt(const std::string &input)
 	}
 }
 
-/* void convertFloat(const std::string &input)
+void convertFloat(const std::string &input)
 {
 	if (input == "nanf" || input == "+inff" || input == "-inff")
 	{
@@ -146,25 +146,28 @@ void convertInt(const std::string &input)
 		return;
 	}
 
-	long num;
+	double num;
 	std::stringstream ss(input);
 	ss >> num;
 
 	if (num < 0 || num > 127)
 		std::cout << "char: impossible" << "\n";
-	else if (num >= 0 && num <= 31)
+	else if ((num >= 0 && num <= 31) || num == 127)
 		std::cout << "char: Non displayable" << '\n';
 	else
 		std::cout << "char: " << static_cast<char>(num) << "\n";
-	
+
 	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max())
-		std::cout << "int: " << num << "\n";
+		std::cout << "int: " << static_cast<int>(num) << "\n";
 	else
 		std::cout << "int: impossible" << "\n";
 
-	std::cout << "float: " << static_cast<float>(num) << ".0f" << "\n";
-	std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
-} */
+	if (num >= std::numeric_limits<float>::min() && num <= std::numeric_limits<float>::max())
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << "\n";
+	else
+		std::cout << "float: impossible" << "\n";
+	std::cout << "double: " << num << "\n";
+}
 
 literal	ScalarConverter::identifyLiteral(const std::string &input)
 {
@@ -193,8 +196,7 @@ void ScalarConverter::convert(std::string &input)
 			convertInt(input);
 			break;
 		case FLOAT:
-			//convertFloat(input);
-			std::cout << type << "\n";
+			convertFloat(input);
 			break;
 		case DOUBLE:
 			std::cout << type << "\n";
