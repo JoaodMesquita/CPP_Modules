@@ -121,11 +121,19 @@ void convertInt(const std::string &input)
 	else
 		std::cout << "int: impossible" << "\n";
 
-	std::cout << "float: " << static_cast<float>(num) << ".0f" << "\n";
-	std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
+	if (num >= 1000000)
+	{
+		std::cout << "float: " << static_cast<float>(num) << "\n";
+		std::cout << "double: " << static_cast<double>(num) << "\n";
+	}
+	else
+	{
+		std::cout << "float: " << static_cast<float>(num) << ".0f" << "\n";
+		std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
+	}
 }
 
-void convertFloat(const std::string &input)
+/* void convertFloat(const std::string &input)
 {
 	if (input == "nanf" || input == "+inff" || input == "-inff")
 	{
@@ -156,7 +164,7 @@ void convertFloat(const std::string &input)
 
 	std::cout << "float: " << static_cast<float>(num) << ".0f" << "\n";
 	std::cout << "double: " << static_cast<double>(num) << ".0" << "\n";
-}
+} */
 
 literal	ScalarConverter::identifyLiteral(const std::string &input)
 {
@@ -185,7 +193,8 @@ void ScalarConverter::convert(std::string &input)
 			convertInt(input);
 			break;
 		case FLOAT:
-			convertFloat(input);
+			//convertFloat(input);
+			std::cout << type << "\n";
 			break;
 		case DOUBLE:
 			std::cout << type << "\n";
