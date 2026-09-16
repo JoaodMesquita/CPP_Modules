@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-typedef struct Data
+struct Data
 {
 	int	medals;
 	std::string name;
