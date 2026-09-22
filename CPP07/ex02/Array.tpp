@@ -19,7 +19,7 @@ Array<T> &Array<T>::operator=(const Array& other)
 	if (this != &other)
 	{
 		delete[] _array;
-		this->_array = new T[other.size];
+		this->_array = new T[other._size];
 		this->_size = other._size;
 	}
 	return *this;
@@ -34,7 +34,9 @@ unsigned int Array<T>::size() const
 template <typename T> 
 T &Array<T>::operator[](unsigned int index)
 {
-	return (_array[index]); // tenho de mandar exepcao no caso de "out of bounds".
+	if (index >= _size)
+		throw std::out_of_range("Ouf of bounds!\n");
+	return (_array[index]);
 }
 
 template<typename T> 
