@@ -40,5 +40,8 @@ T &Array<T>::operator[](unsigned int index)
 }
 
 template<typename T> 
-Array<T>::~Array() {}
+Array<T>::~Array() 
+{
+	delete [] _array;
+}
 
