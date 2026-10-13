@@ -56,7 +56,7 @@ int	main(void)
 	else
 		std::cout << "Not found\n";
 
-	std::cout << "====Non-existent====\n";
+	std::cout << "====Non-existent (99)====\n";
 	it = easyfind(v, 99);
 	
 	if (it != v.end())
@@ -80,7 +80,7 @@ int	main(void)
 		std::cout << "Not found\n";
 
 	// Non-existent
-	std::cout << "====Non-existent====\n";
+	std::cout << "====Non-existent (69)====\n";
 	it2 = easyfind(l, 69);
 	if (it2 != l.end())
 		std::cout << "Found: " << *it2 << std::endl; 
@@ -103,7 +103,7 @@ int	main(void)
 		std::cout << "Not found\n";
 
 	// Non-existent
-	std::cout << "====Non-existent====\n";
+	std::cout << "====Non-existent (0)====\n";
 	it3 = easyfind(d, 0);
 	if (it3 != d.end())
 		std::cout << "Found: " << *it3 << std::endl; 
