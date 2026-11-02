@@ -7,7 +7,7 @@ int	main(void)
 	Span assignment(10);
 	Span unsorted(3);
 
-/* 	try
+	try
 	{
 		container.addNumber(10);
 		container.addNumber(20);
@@ -17,7 +17,7 @@ int	main(void)
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << std:: endl;
-	} */
+	}
 
 	assignment.addNumber(50);
 	assignment.addNumber(1000);
@@ -29,7 +29,9 @@ int	main(void)
 	unsorted.addNumber(300);
 	unsorted.addNumber(500);
 	unsorted.addNumber(3);
-	unsorted.shortestSpan();
+	unsorted.printElements();
+
+	std::cout << "shortest span: " << unsorted.shortestSpan() << "\n";
 
 	return (0);
 }
