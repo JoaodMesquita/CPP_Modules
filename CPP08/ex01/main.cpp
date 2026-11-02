@@ -2,36 +2,181 @@
 
 int	main(void)
 {
-	Span empty;
-	Span container(2);
-	Span assignment(10);
-	Span unsorted(3);
-
 	try
 	{
-		container.addNumber(10);
-		container.addNumber(20);
-		container.printElements(); //funcao que printa os elementos do container
-		container.addNumber(5);
+		Span sp(5);
+
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+
+		sp.printElements();
+
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << e.what() << std:: endl;
+		std::cout << e.what() << std::endl;
 	}
 
-	assignment.addNumber(50);
-	assignment.addNumber(1000);
-	assignment.printElements();
-	assignment = container;
-	assignment.printElements();
-	
-	
-	unsorted.addNumber(300);
-	unsorted.addNumber(500);
-	unsorted.addNumber(3);
-	unsorted.printElements();
+	std::cout << "\n===== TEST 2: DUPLICATE NUMBERS =====" << std::endl;
 
-	std::cout << "shortest span: " << unsorted.shortestSpan() << "\n";
+	try
+	{
+		Span sp(4);
 
-	return (0);
+		sp.addNumber(10);
+		sp.addNumber(10);
+		sp.addNumber(20);
+		sp.addNumber(30);
+
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 3: ONLY TWO NUMBERS =====" << std::endl;
+
+	try
+	{
+		Span sp(2);
+
+		sp.addNumber(100);
+		sp.addNumber(200);
+
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 4: EMPTY CONTAINER =====" << std::endl;
+
+	try
+	{
+		Span sp(5);
+
+		std::cout << sp.shortestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 5: ONLY ONE NUMBER =====" << std::endl;
+
+	try
+	{
+		Span sp(5);
+
+		sp.addNumber(42);
+
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 6: CAPACITY EXCEEDED =====" << std::endl;
+
+	try
+	{
+		Span sp(2);
+
+		sp.addNumber(10);
+		sp.addNumber(20);
+		sp.addNumber(30);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 7: COPY CONSTRUCTOR =====" << std::endl;
+
+	try
+	{
+		Span original(3);
+
+		original.addNumber(10);
+		original.addNumber(50);
+		original.addNumber(100);
+
+		Span copy(original);
+
+		std::cout << "Original:" << std::endl;
+		original.printElements();
+
+		std::cout << "Copy:" << std::endl;
+		copy.printElements();
+
+		std::cout << "Copy shortest: " << copy.shortestSpan() << std::endl;
+		std::cout << "Copy longest: " << copy.longestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 8: COPY ASSIGNMENT =====" << std::endl;
+
+	try
+	{
+		Span original(3);
+		original.addNumber(5);
+		original.addNumber(15);
+		original.addNumber(25);
+
+		Span assigned(5);
+		assigned = original;
+
+		assigned.printElements();
+
+		std::cout << "Shortest: " << assigned.shortestSpan() << std::endl;
+		std::cout << "Longest: " << assigned.longestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 9: 10,000 NUMBERS =====" << std::endl;
+
+	try
+	{
+		Span bigSpan(10000);
+
+		for (int i = 0; i < 10000; i++)
+			bigSpan.addNumber(i * 3);
+
+		std::cout << "Shortest span: " << bigSpan.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << bigSpan.longestSpan() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 10: ZERO CAPACITY =====" << std::endl;
+
+	try
+	{
+		Span sp(0);
+		sp.addNumber(10);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	return 0;
 }

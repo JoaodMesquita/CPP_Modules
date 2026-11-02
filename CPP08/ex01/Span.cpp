@@ -40,6 +40,17 @@ unsigned int Span::shortestSpan() const
 	return result;
 }
 
+unsigned int Span::longestSpan() const
+{
+	if (_container.size() < 2)
+		throw std::logic_error("Error: Container with less than 2 elements");
+	std::vector<int>::const_iterator min = std::min_element(_container.begin(), _container.end());
+	std::vector<int>::const_iterator max = std::max_element(_container.begin(), _container.end());
+	
+	unsigned int result = *max - *min;
+	return result;
+}
+
 void Span::printElements() const
 {
 	for (std::vector<int>::const_iterator it = _container.begin(); it != _container.end(); ++it)
