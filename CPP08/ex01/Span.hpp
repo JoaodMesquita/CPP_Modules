@@ -26,7 +26,7 @@ class Span
 		void printElements() const;
 		
 		template<typename T> void addMultipleNumbers(T begin, T end)
-		{	
+		{
 			while (begin != end)
 			{
 				addNumber(*begin);

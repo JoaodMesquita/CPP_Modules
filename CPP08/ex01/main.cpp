@@ -154,6 +154,8 @@ int	main(void)
 
 	std::cout << "\n===== TEST 9: ADD MULTIPLE NUMBERS =====" << std::endl;
 
+	try
+	{
 		Span multiple(10);
 
 		std::vector<int> numbers;
@@ -163,6 +165,11 @@ int	main(void)
 
 		multiple.addMultipleNumbers(numbers.begin(), numbers.end());
 		multiple.printElements();
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	std::cout << "\n===== TEST 10: 10,000 NUMBERS =====" << std::endl;
 
