@@ -12,7 +12,7 @@ int	main(void)
 
 	std::cout << "VECTOR\n";
 
-	typename std::vector<int>::iterator it;
+	std::vector<int>::iterator it;
 	
 	for (it = v.begin(); it != v.end(); it++)
 	{
