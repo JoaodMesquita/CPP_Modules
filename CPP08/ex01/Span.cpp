@@ -30,8 +30,9 @@ unsigned int Span::shortestSpan() const
 		throw std::logic_error("Error: Container with less than 2 elements");
 	std::vector<int> tmp = _container; 
 	std::sort(tmp.begin(), tmp.end());
+
 	unsigned int result = std::numeric_limits<unsigned int>::max();
-	for (unsigned int i = 0; i < tmp.size(); i++)
+	for (unsigned int i = 0; i < tmp.size() - 1; i++)
 	{
 		unsigned int diff = tmp[i + 1] - tmp[i];
 		if (diff < result)

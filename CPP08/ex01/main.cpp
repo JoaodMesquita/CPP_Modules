@@ -11,6 +11,9 @@ int	main(void)
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
+		/* sp.addNumber(-10);
+		sp.addNumber(5);
+		sp.addNumber(20); */
 
 		sp.printElements();
 
@@ -149,7 +152,19 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n===== TEST 9: 10,000 NUMBERS =====" << std::endl;
+	std::cout << "\n===== TEST 9: ADD MULTIPLE NUMBERS =====" << std::endl;
+
+		Span multiple(10);
+
+		std::vector<int> numbers;
+		numbers.push_back(10);
+		numbers.push_back(20);
+		numbers.push_back(30);
+
+		multiple.addMultipleNumbers(numbers.begin(), numbers.end());
+		multiple.printElements();
+
+	std::cout << "\n===== TEST 10: 10,000 NUMBERS =====" << std::endl;
 
 	try
 	{
@@ -166,7 +181,7 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n===== TEST 10: ZERO CAPACITY =====" << std::endl;
+	std::cout << "\n===== TEST 11: ZERO CAPACITY =====" << std::endl;
 
 	try
 	{

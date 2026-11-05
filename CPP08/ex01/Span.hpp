@@ -22,8 +22,17 @@ class Span
 		void addNumber(int n);
 		unsigned int shortestSpan() const;
 		unsigned int longestSpan() const;
-
+		
 		void printElements() const;
+		
+		template<typename T> void addMultipleNumbers(T begin, T end)
+		{	
+			while (begin != end)
+			{
+				addNumber(*begin);
+				begin++;
+			}
+		}
 };
 
 #endif
