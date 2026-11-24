@@ -17,6 +17,7 @@ class BitcoinExchange
 		~BitcoinExchange(); */
 
 		void	validateInput(const std::string &input);
+		int	checkFormat(const std::string line);
 };
 
 #endif

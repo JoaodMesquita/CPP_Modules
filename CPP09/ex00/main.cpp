@@ -8,10 +8,16 @@ int	main(int ac, char **av)
 		return 1;
 	}
 
-	BitcoinExchange btc;
-	const std::string input = av[1];
-
-	btc.validateInput(input);
+	try
+	{
+		BitcoinExchange btc;
+		const std::string input = av[1];
+		btc.validateInput(input);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	return 0;
 }
