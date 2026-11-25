@@ -31,24 +31,30 @@ void	BitcoinExchange::validateInput(const std::string &input)
 		while(getline(fs, line))
 		{
 			if (!checkFormat(line))
-				continue; 
-			//std::cout << line << "\n";
+				std::cerr << "Error: bad input" << "\n";
+			checkDate(line);
+				//std::cout << line << "\n";
 		}	
 	}
 	else
 		throw std::runtime_error("Error: File not found");
 }
 
-int	BitcoinExchange::checkFormat(const std::string line)
+int	BitcoinExchange::checkFormat(const std::string &line)
 {
 	std::size_t pos = line.find("|");
 	if (pos == std::string::npos)
-	{
-		std::cout << "Error: bad input" << "\n"; //Update message to Error: input => <date>
 		return 0;
-	}
+
 	std::string date = line.substr(0, pos);
-	std::string value = line.substr(pos);
-	std::cout << date << value << "\n";
+	std::string value = line.substr(pos + 1);
+
+	if (value.find("|") != std::string::npos || value.find_first_not_of(" \t") == std::string::npos)
+		return 0;
 	return 1;
+}
+
+void	BitcoinExchange::checkDate(const std::string &line)
+{
+	
 }
