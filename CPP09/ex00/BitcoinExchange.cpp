@@ -31,9 +31,11 @@ void	BitcoinExchange::validateInput(const std::string &input)
 		while(getline(fs, line))
 		{
 			if (!checkFormat(line))
+			{
 				std::cerr << "Error: bad input" << "\n";
+				continue;
+			}
 			checkDate(line);
-				//std::cout << line << "\n";
 		}	
 	}
 	else
@@ -56,5 +58,17 @@ int	BitcoinExchange::checkFormat(const std::string &line)
 
 void	BitcoinExchange::checkDate(const std::string &line)
 {
+	std::size_t pos = line.find("|");
+	std::string str = line.substr(0, pos);
 	
+	std::size_t first_char = str.find_first_not_of(" \t");
+	std::size_t last_char = str.find_last_not_of(" \t");
+	std::string date = str.substr(first_char, last_char - first_char + 1);
+
+	if (date[4] != '-' && date[7] != '-')
+	{
+		std::cout << "Error: Wrong date format => <YEAR-DAY-MONTH>" << "\n";
+		std::cout << date << std::endl;
+	}
+
 }
