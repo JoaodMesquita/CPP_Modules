@@ -71,4 +71,11 @@ void	BitcoinExchange::checkDate(const std::string &line)
 		std::cout << date << std::endl;
 	}
 
+/* 	for (std::size_t i = 0; i < date.size(); i++)
+	{
+		if (date[i] == '-')
+			i++;
+		else if (std::isdigit(date[i]) == 0)
+			std::cout << "Error: numbere3y8238s" << "\n";
+	} */
 }

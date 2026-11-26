@@ -2,7 +2,8 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
-#include <fstream> 
+#include <fstream>
+#include <cstdlib>
 
 
 class BitcoinExchange
