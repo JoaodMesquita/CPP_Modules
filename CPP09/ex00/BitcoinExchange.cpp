@@ -65,9 +65,9 @@ void	BitcoinExchange::checkDate(const std::string &line)
 	std::size_t last_char = str.find_last_not_of(" \t");
 	std::string date = str.substr(first_char, last_char - first_char + 1);
 
-	if (date[4] != '-' && date[7] != '-')
+	if (date.size() != 10 || (date[4] != '-' && date[7] != '-'))
 	{
-		std::cout << "Error: Wrong date format => <YEAR-DAY-MONTH>" << "\n";
+		std::cerr << "Error: Wrong date format => <YEAR-DAY-MONTH>" << "\n";
 		std::cout << date << std::endl;
 	}
 
