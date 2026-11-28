@@ -31,11 +31,9 @@ void	BitcoinExchange::validateInput(const std::string &input)
 		while(getline(fs, line))
 		{
 			if (!checkFormat(line))
-			{
-				std::cerr << "Error: bad input" << "\n";
 				continue;
-			}
-			checkDate(line);
+			else if (!checkDate(line))
+				continue;
 		}	
 	}
 	else
@@ -46,36 +44,69 @@ int	BitcoinExchange::checkFormat(const std::string &line)
 {
 	std::size_t pos = line.find("|");
 	if (pos == std::string::npos)
+	{
+		std::cerr << "Error: bad input" << "\n";
 		return 0;
-
+	}	
 	std::string date = line.substr(0, pos);
 	std::string value = line.substr(pos + 1);
 
-	if (value.find("|") != std::string::npos || value.find_first_not_of(" \t") == std::string::npos)
+	if (date.empty() || date.find_first_not_of(" \t") == std::string::npos)
+	{
+		std::cerr << "Error: bad input" << "\n";
 		return 0;
+	}
+	else if (value.empty() || value.find_first_not_of(" \t") == std::string::npos)
+	{
+		std::cerr << "Error: bad input" << "\n";
+		return 0;
+	}
+	else if (value.find("|") != std::string::npos)
+	{
+		std::cerr << "Error: bad input" << "\n";
+		return 0;
+	}
 	return 1;
 }
 
-void	BitcoinExchange::checkDate(const std::string &line)
+int	BitcoinExchange::checkDate(const std::string &line)
 {
-	std::size_t pos = line.find("|");
-	std::string str = line.substr(0, pos);
-	
+	std::string str = line.substr(0, line.find("|"));
 	std::size_t first_char = str.find_first_not_of(" \t");
 	std::size_t last_char = str.find_last_not_of(" \t");
 	std::string date = str.substr(first_char, last_char - first_char + 1);
 
-	if (date.size() != 10 || (date[4] != '-' && date[7] != '-'))
+	if (date.size() != 10 || (date[4] != '-' || date[7] != '-'))
 	{
-		std::cerr << "Error: Wrong date format => <YEAR-DAY-MONTH>" << "\n";
-		std::cout << date << std::endl;
+		std::cerr << "Error: Wrong date format => <YYYY-DD-MM>" << "\n";
+		return 0;
 	}
-
-/* 	for (std::size_t i = 0; i < date.size(); i++)
+	for (std::size_t i = 0; i < date.size(); i++)
 	{
 		if (date[i] == '-')
 			i++;
 		else if (std::isdigit(date[i]) == 0)
-			std::cout << "Error: numbere3y8238s" << "\n";
-	} */
+		{
+			std::cerr << "Error: Wrong date format => <YYYY-DD-MM>" << "\n";
+			return 0;
+		}
+	}
+	
+	std::string year = date.substr(0, date.find("-"));
+	std::string month = date.substr(date.find("-") + 1, date.find_last_of("-") - date.find("-") - 1);
+	std::string day = date.substr(date.find_last_of("-") + 1);
+
+	int yearInt = atoi(year.c_str());
+	//int dayInt = atoi(day.c_str());
+	//int monthInt = atoi(month.c_str());
+
+	if (yearInt <= 2008 || yearInt > 2022)
+	{
+		std::cerr << "Error: year out of range." << std::endl;
+		return 0;
+	}
+
+	std::cout << year << "-" << month << "-" << day << "\n";
+
+	return 1;
 }

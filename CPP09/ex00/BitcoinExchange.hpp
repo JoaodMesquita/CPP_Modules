@@ -5,6 +5,12 @@
 #include <fstream>
 #include <cstdlib>
 
+struct DATE
+{
+	int day;
+	int month;
+	int year;
+};
 
 class BitcoinExchange
 {
@@ -19,7 +25,7 @@ class BitcoinExchange
 
 		void	validateInput(const std::string &input);
 		int		checkFormat(const std::string &line);
-		void	checkDate(const std::string &line);
+		int	checkDate(const std::string &line);
 };
 
 #endif
